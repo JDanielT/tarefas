@@ -1,0 +1,33 @@
+
+<h2> Detail Todo </h2>
+
+<div style="max-width: 700px" >
+
+<hr/>
+
+<% if notice != nil %>
+<div class="alert alert-success">
+  <%= notice %>
+</div>
+<% end %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @todo.title %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @todo.notes %>
+</p>
+
+</div>
+
+<div class="actions">
+
+<hr/>
+
+<%= link_to 'Back', todos_path, class: 'btn' %>
+<%= link_to 'Edit', edit_todo_path(@todo), class: 'btn btn-primary' %> 
+
+</div>

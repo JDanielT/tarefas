@@ -1,0 +1,36 @@
+<%= form_for(@todo) do |f| %>
+  <% if @todo.errors.any? %>
+    <div class="alert alert-danger" >
+	  Ooops! Aconteceram alguns problemas!
+      <ul>
+      <% @todo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<div style="max-width: 700px" >
+
+	  <div class="field">
+		<%= f.label :title%><br>
+		<%= f.text_field :title, class: 'form-control' %>
+	  </div>
+
+	  <div class="field">
+		<%= f.label :notes %><br>
+		<%= f.text_field :notes, class: 'form-control' %>
+	  </div>
+
+	</div>
+
+  <div class="actions"  >
+
+	<hr/>	
+
+    <%= link_to 'Back', todos_path, class: 'btn'%>
+    <%= f.submit 'Save' , class: 'btn btn-primary' %>
+  </div>
+
+<% end %>
+

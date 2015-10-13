@@ -1,0 +1,32 @@
+<h1>Listing todos</h1>
+
+<br/>
+
+<%= link_to 'New', new_todo_path, class: 'btn btn-primary' %>
+
+<hr/>
+
+<table class="table table-condensed table-striped" >
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Notes</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todos.each do |todo| %>
+      <tr>
+        <td><%= todo.title %></td>
+        <td><%= todo.formated_notes %>
+		</td>
+        <td><%= link_to 'Show', todo %>
+            <%= link_to 'Edit', edit_todo_path(todo) %>
+            <%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %>
+       </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
